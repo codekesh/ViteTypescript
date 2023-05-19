@@ -20,6 +20,17 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+
+.form{
+  display: flex;
+  flex-direction: column;
+}
+
+.form input{
+  margin: 1em auto;
+  height: 2em;
+  width: 13rem;
+}
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
