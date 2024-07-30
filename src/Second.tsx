@@ -1,20 +1,18 @@
 import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { DataGrid, GridColDef, gridClasses } from "@mui/x-data-grid";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
   {
     field: "title",
     headerName: "Title",
-    width: 200,
-    editable: true,
+    width: 300,
   },
   {
     field: "body",
     headerName: "Body",
-    width: 200,
-    editable: true,
+    width: 300,
   },
 ];
 
@@ -30,22 +28,28 @@ const Second = () => {
 
   return (
     <>
-      <Box sx={{ height: 370, width: "100%" }}>
+      {/* Componenet 1 */}
+      <Box sx={{ height: 400, width: "100%" }}>
         <DataGrid
           rows={records}
           columns={columns}
+          getRowHeight={() => "auto"}
+          sx={{
+            [`& .${gridClasses.cell}`]: {
+              py: 1,
+            },
+          }}
           initialState={{
             pagination: {
               paginationModel: {
-                pageSize: 5,
+                pageSize: 3,
               },
             },
           }}
-          pageSizeOptions={[5]}
-          checkboxSelection
           disableRowSelectionOnClick
         />
       </Box>
+      {/* Component 2 */}
     </>
   );
 };
